@@ -1,4 +1,7 @@
 # KAIJU SIEGE: MANHATTAN
+
+![Backglass](docs/backglass.png)
+
 TurboGrafx-16 / PC Engine homebrew pinball (HuCard, 256 KB)
 
 A Xenocide21 game. Design and concept by Xenocide21; code and art built with Claude (AI).
@@ -44,6 +47,7 @@ Ball save for the first 10 seconds of each ball. Ball search frees stuck balls.
 
 Files:
 - `src/kaiju.c`: the whole game (physics, flippers, kaiju AI, scoring, sound)
+- `tools/backglass.py`: draws the backglass art (`docs/backglass.png`)
 - `tools/rooms.py`: bonus room art and geometry
 - `tools/gen_assets.py`: draws the table, title and sprites, builds the collision/normal map, tiles, palettes and the BAT
 - `tools/harness.c`, `run.py`, `play.sh`: headless test harness on HuC's bundled tgemu core, with an auto-flipper bot
@@ -52,3 +56,6 @@ Files:
 - Physics run at 4 substeps per frame on a 2-pixel collision grid with 32 surface normals. Flippers use analytic sweep collision with surface velocity.
 - Split screen: a fixed 16-line HUD above the scrolling table (HuCC `scroll_split`).
 - Sound: hand-written PSG driver with effects on 5 channels and a bass ostinato on channel 3. It speeds up when the kaiju is awake.
+
+## License
+MIT. See [LICENSE](LICENSE). The HuCC toolchain used to build the game is a separate project with its own license.
