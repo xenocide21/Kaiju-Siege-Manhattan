@@ -1,0 +1,11 @@
+# build outputs
+src/*.pce
+src/*.s
+src/*.sym
+src/*.lst
+src/build.log
+tools/harness
+tools/harness_log
+preview/
+shots/
+__pycache__/
