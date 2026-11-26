@@ -6,7 +6,7 @@ TurboGrafx-16 / PC Engine homebrew pinball (HuCard, 256 KB)
 
 A Xenocide21 game. Design and concept by Xenocide21; code and art built with Claude (AI).
 
-**Play it:** download [`rom/kaiju_siege_manhattan.pce`](rom/kaiju_siege_manhattan.pce) and load it in any TurboGrafx-16 / PC Engine emulator.
+**Play it:** download [`rom/kaiju_siege_manhattan.pce`](rom/kaiju_siege_manhattan.pce) and load it in any TurboGrafx-16 / PC Engine emulator. The instruction manual is [`docs/kaiju_siege_manual.pdf`](docs/kaiju_siege_manual.pdf).
 
 ![Title, table and kaiju](docs/screens_table.png)
 ![Bonus rooms](docs/screens_bonus_rooms.png)
@@ -47,6 +47,7 @@ Ball save for the first 10 seconds of each ball. Ball search frees stuck balls.
 
 Files:
 - `src/kaiju.c`: the whole game (physics, flippers, kaiju AI, scoring, sound)
+- `tools/manual.py`: builds the PDF instruction manual
 - `tools/backglass.py`: draws the backglass art (`docs/backglass.png`)
 - `tools/rooms.py`: bonus room art and geometry
 - `tools/gen_assets.py`: draws the table, title and sprites, builds the collision/normal map, tiles, palettes and the BAT
