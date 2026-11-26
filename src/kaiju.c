@@ -1303,6 +1303,7 @@ void enter_room(unsigned char r)
 void exit_room(void)
 {
 	unsigned char r, i;
+	int jx, jy;
 	r = room;
 	fire_clear();
 	hide_all_sprites();
@@ -1314,9 +1315,12 @@ void exit_room(void)
 	for (i = 0; i < MAXB; i++) bst[i] = BS_NONE;
 	for (i = 0; i < 4; i++) { ten_cool[i] = 0; ten_flash[i] = 0; }
 	expl_t = 0; exit_req = 0;
-	if (r == 1) { spawn_ball(0, SUBWAY_X + 4, SUBWAY_Y - 8, 36, -28, BS_PLAY); sub_cool = 60; }
-	else if (r == 2) spawn_ball(0, 190, 232, -36, -12, BS_PLAY);
-	else spawn_ball(0, 116, 132, 0, 24, BS_PLAY);
+	/* vary each exit so it never follows the same path twice */
+	jx = (frame & 7) - 4;          /* -4..3 */
+	jy = ((frame >> 3) & 7) - 4;   /* -4..3 */
+	if (r == 1) { spawn_ball(0, SUBWAY_X + 4, SUBWAY_Y - 8, 34 + jx * 2, -28 + jy * 2, BS_PLAY); sub_cool = 60; }
+	else if (r == 2) spawn_ball(0, 190, 222, -36 + jx, -18 + jy * 2, BS_PLAY);   /* aimed into the right Times Square bumper */
+	else spawn_ball(0, 116 + jx, 132, jx * 3, 24, BS_PLAY);
 	stuckx[0] = 0; stucky[0] = 0;
 	cam = (bally[0] >> 5) - 120;
 	if (cam < 0) cam = 0;
